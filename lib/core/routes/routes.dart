@@ -1,6 +1,7 @@
 import 'package:auto_route/annotations.dart';
-import 'package:notes_app/auth/presentation/logIn/login_page.dart';
+import 'package:notes_app/auth/presentation/signIn/signIn_page.dart';
 import 'package:notes_app/auth/presentation/signUp/signup_page.dart';
+import 'package:notes_app/dashboard/dashboard_page.dart';
 import 'package:notes_app/splash_page.dart';
 
 @MaterialAutoRouter(
@@ -11,10 +12,13 @@ import 'package:notes_app/splash_page.dart';
       initial: true,
     ),
     AutoRoute(
-      page: LogInPage,
+      page: SignInPage,
     ),
     AutoRoute(
       page: SignUpPage,
+    ),
+    AutoRoute(
+      page: DashboardPage,
     ),
   ],
 )

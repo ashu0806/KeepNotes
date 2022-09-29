@@ -1,59 +1,58 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:notes_app/auth/domain/logInState/log_in_state.dart';
+import 'package:notes_app/auth/shared/providers.dart';
 import 'package:notes_app/core/routes/routes.gr.dart';
 
-// final initialProvider = FutureProvider<Unit>(
-//   (ref) {
-//     final userData = ref.read(logInNotifierProvider.notifier);
-//     userData.isLogin();
-//     return unit;
-//   },
-// );
+final initialProvider = FutureProvider<Unit>(
+  (ref) {
+    final userData = ref.read(logInNotifierProvider.notifier);
+    userData.checkSigninUser();
+    return unit;
+  },
+);
 
 class SplashPage extends HookConsumerWidget {
   const SplashPage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    Future.delayed(
-      const Duration(
-        seconds: 3,
-      ),
-      () {
-        AutoRouter.of(context).push(
-          const LogInRoute(),
+    ref.listen(
+      initialProvider,
+      (previous, next) {},
+    );
+    ref.listen<LogInState>(
+      logInNotifierProvider,
+      (previous, state) {
+        state.maybeMap(
+          orElse: () {},
+          authenticated: (value) {
+            Future.delayed(
+              const Duration(seconds: 2),
+              () async {
+                await AutoRouter.of(context).pushAndPopUntil(
+                  const DashboardRoute(),
+                  predicate: (route) => false,
+                );
+              },
+            );
+          },
+          unauthenticated: (value) {
+            Future.delayed(
+              const Duration(seconds: 2),
+              () async {
+                await AutoRouter.of(context).pushAndPopUntil(
+                  const SignInRoute(),
+                  predicate: (route) => false,
+                );
+              },
+            );
+          },
         );
       },
     );
-    // ref.listen(initialProvider, (previous, next) {});
-    // ref.listen<LogInState>(
-    //   logInNotifierProvider,
-    //   ((previousState, nextState) {
-    //     Future.delayed(
-    //       const Duration(
-    //         seconds: 2,
-    //       ),
-    //       () {
-    //         nextState.maybeMap(
-    //           orElse: () {},
-    //           authenticated: (value) {
-    //             AutoRouter.of(context).pushAndPopUntil(
-    //               const DashboardRoute(),
-    //               predicate: (route) => false,
-    //             );
-    //           },
-    //           unauthenticated: (value) {
-    //             AutoRouter.of(context).pushAndPopUntil(
-    //               const LogInRoute(),
-    //               predicate: (route) => false,
-    //             );
-    //           },
-    //         );
-    //       },
-    //     );
-    //   }),
-    // );
     return Scaffold(
       body: SafeArea(
         child: Column(
