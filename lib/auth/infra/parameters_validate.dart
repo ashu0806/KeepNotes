@@ -2,7 +2,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:notes_app/auth/application/validator.dart';
 
-import 'package:notes_app/auth/domain/value_failure.dart';
+import 'package:notes_app/auth/domain/valueFailure/value_failure.dart';
 import 'package:notes_app/auth/infra/parameters.dart';
 
 class EmailAddress extends Parameters<String> {

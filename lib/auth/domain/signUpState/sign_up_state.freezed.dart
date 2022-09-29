@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'auth_state.dart';
+part of 'sign_up_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,26 +15,26 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$AuthState {
+mixin _$SignUpState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() success,
-    required TResult Function(String message) failure,
+    required TResult Function(AuthFailure failure) failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? success,
-    TResult Function(String message)? failure,
+    TResult Function(AuthFailure failure)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? success,
-    TResult Function(String message)? failure,
+    TResult Function(AuthFailure failure)? failure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -63,18 +63,19 @@ mixin _$AuthState {
 }
 
 /// @nodoc
-abstract class $AuthStateCopyWith<$Res> {
-  factory $AuthStateCopyWith(AuthState value, $Res Function(AuthState) then) =
-      _$AuthStateCopyWithImpl<$Res>;
+abstract class $SignUpStateCopyWith<$Res> {
+  factory $SignUpStateCopyWith(
+          SignUpState value, $Res Function(SignUpState) then) =
+      _$SignUpStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
-  _$AuthStateCopyWithImpl(this._value, this._then);
+class _$SignUpStateCopyWithImpl<$Res> implements $SignUpStateCopyWith<$Res> {
+  _$SignUpStateCopyWithImpl(this._value, this._then);
 
-  final AuthState _value;
+  final SignUpState _value;
   // ignore: unused_field
-  final $Res Function(AuthState) _then;
+  final $Res Function(SignUpState) _then;
 }
 
 /// @nodoc
@@ -85,7 +86,7 @@ abstract class _$$_InitialCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
+class __$$_InitialCopyWithImpl<$Res> extends _$SignUpStateCopyWithImpl<$Res>
     implements _$$_InitialCopyWith<$Res> {
   __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
       : super(_value, (v) => _then(v as _$_Initial));
@@ -96,12 +97,12 @@ class __$$_InitialCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Initial extends _Initial {
-  const _$_Initial() : super._();
+class _$_Initial implements _Initial {
+  const _$_Initial();
 
   @override
   String toString() {
-    return 'AuthState.initial()';
+    return 'SignUpState.initial()';
   }
 
   @override
@@ -118,7 +119,7 @@ class _$_Initial extends _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() success,
-    required TResult Function(String message) failure,
+    required TResult Function(AuthFailure failure) failure,
   }) {
     return initial();
   }
@@ -128,7 +129,7 @@ class _$_Initial extends _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? success,
-    TResult Function(String message)? failure,
+    TResult Function(AuthFailure failure)? failure,
   }) {
     return initial?.call();
   }
@@ -138,7 +139,7 @@ class _$_Initial extends _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? success,
-    TResult Function(String message)? failure,
+    TResult Function(AuthFailure failure)? failure,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -182,9 +183,8 @@ class _$_Initial extends _Initial {
   }
 }
 
-abstract class _Initial extends AuthState {
+abstract class _Initial implements SignUpState {
   const factory _Initial() = _$_Initial;
-  const _Initial._() : super._();
 }
 
 /// @nodoc
@@ -195,7 +195,7 @@ abstract class _$$_SuccessCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_SuccessCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
+class __$$_SuccessCopyWithImpl<$Res> extends _$SignUpStateCopyWithImpl<$Res>
     implements _$$_SuccessCopyWith<$Res> {
   __$$_SuccessCopyWithImpl(_$_Success _value, $Res Function(_$_Success) _then)
       : super(_value, (v) => _then(v as _$_Success));
@@ -206,12 +206,12 @@ class __$$_SuccessCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Success extends _Success {
-  const _$_Success() : super._();
+class _$_Success implements _Success {
+  const _$_Success();
 
   @override
   String toString() {
-    return 'AuthState.success()';
+    return 'SignUpState.success()';
   }
 
   @override
@@ -228,7 +228,7 @@ class _$_Success extends _Success {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() success,
-    required TResult Function(String message) failure,
+    required TResult Function(AuthFailure failure) failure,
   }) {
     return success();
   }
@@ -238,7 +238,7 @@ class _$_Success extends _Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? success,
-    TResult Function(String message)? failure,
+    TResult Function(AuthFailure failure)? failure,
   }) {
     return success?.call();
   }
@@ -248,7 +248,7 @@ class _$_Success extends _Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? success,
-    TResult Function(String message)? failure,
+    TResult Function(AuthFailure failure)? failure,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -292,9 +292,8 @@ class _$_Success extends _Success {
   }
 }
 
-abstract class _Success extends AuthState {
+abstract class _Success implements SignUpState {
   const factory _Success() = _$_Success;
-  const _Success._() : super._();
 }
 
 /// @nodoc
@@ -302,11 +301,13 @@ abstract class _$$_FailureCopyWith<$Res> {
   factory _$$_FailureCopyWith(
           _$_Failure value, $Res Function(_$_Failure) then) =
       __$$_FailureCopyWithImpl<$Res>;
-  $Res call({String message});
+  $Res call({AuthFailure failure});
+
+  $AuthFailureCopyWith<$Res> get failure;
 }
 
 /// @nodoc
-class __$$_FailureCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
+class __$$_FailureCopyWithImpl<$Res> extends _$SignUpStateCopyWithImpl<$Res>
     implements _$$_FailureCopyWith<$Res> {
   __$$_FailureCopyWithImpl(_$_Failure _value, $Res Function(_$_Failure) _then)
       : super(_value, (v) => _then(v as _$_Failure));
@@ -316,28 +317,35 @@ class __$$_FailureCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? message = freezed,
+    Object? failure = freezed,
   }) {
     return _then(_$_Failure(
-      message == freezed
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
+      failure == freezed
+          ? _value.failure
+          : failure // ignore: cast_nullable_to_non_nullable
+              as AuthFailure,
     ));
+  }
+
+  @override
+  $AuthFailureCopyWith<$Res> get failure {
+    return $AuthFailureCopyWith<$Res>(_value.failure, (value) {
+      return _then(_value.copyWith(failure: value));
+    });
   }
 }
 
 /// @nodoc
 
-class _$_Failure extends _Failure {
-  const _$_Failure(this.message) : super._();
+class _$_Failure implements _Failure {
+  const _$_Failure(this.failure);
 
   @override
-  final String message;
+  final AuthFailure failure;
 
   @override
   String toString() {
-    return 'AuthState.failure(message: $message)';
+    return 'SignUpState.failure(failure: $failure)';
   }
 
   @override
@@ -345,12 +353,12 @@ class _$_Failure extends _Failure {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Failure &&
-            const DeepCollectionEquality().equals(other.message, message));
+            const DeepCollectionEquality().equals(other.failure, failure));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(failure));
 
   @JsonKey(ignore: true)
   @override
@@ -362,9 +370,9 @@ class _$_Failure extends _Failure {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() success,
-    required TResult Function(String message) failure,
+    required TResult Function(AuthFailure failure) failure,
   }) {
-    return failure(message);
+    return failure(this.failure);
   }
 
   @override
@@ -372,9 +380,9 @@ class _$_Failure extends _Failure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? success,
-    TResult Function(String message)? failure,
+    TResult Function(AuthFailure failure)? failure,
   }) {
-    return failure?.call(message);
+    return failure?.call(this.failure);
   }
 
   @override
@@ -382,11 +390,11 @@ class _$_Failure extends _Failure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? success,
-    TResult Function(String message)? failure,
+    TResult Function(AuthFailure failure)? failure,
     required TResult orElse(),
   }) {
     if (failure != null) {
-      return failure(message);
+      return failure(this.failure);
     }
     return orElse();
   }
@@ -426,11 +434,10 @@ class _$_Failure extends _Failure {
   }
 }
 
-abstract class _Failure extends AuthState {
-  const factory _Failure(final String message) = _$_Failure;
-  const _Failure._() : super._();
+abstract class _Failure implements SignUpState {
+  const factory _Failure(final AuthFailure failure) = _$_Failure;
 
-  String get message;
+  AuthFailure get failure;
   @JsonKey(ignore: true)
   _$$_FailureCopyWith<_$_Failure> get copyWith =>
       throw _privateConstructorUsedError;

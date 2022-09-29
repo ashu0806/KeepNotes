@@ -42,6 +42,7 @@ class UserDetailsField extends StatelessWidget {
             horizontal: 8.w,
           ),
           child: TextFormField(
+            controller: controller,
             style: Theme.of(context).textTheme.headline2!.copyWith(
                   fontSize: 14.sp,
                   color: Colors.black,
